@@ -71,5 +71,9 @@ for phase in ['BL','FU2','FU3']:
     for condition in ['BW','SW','NW']:
         cols = [f'{condition}_{phase}_left_lh', f'{condition}_{phase}_left_rh', f'{condition}_{phase}_right_lh', f'{condition}_{phase}_right_rh']
         df_clean = drop_three_sigma_and_na(df, cols)
-        df_pc4, pca4 = fit_pca_and_append(df_clean, cols, n_components=4, prefix='BW_BL')
+        dynamic_prefix = f'{condition}_{phase}'
+        df_pc4, pca4 = fit_pca_and_append(df_clean, cols, n_components=4, prefix=dynamic_prefix)
         print_component_weights(pca4, cols, title='PCA with 4 Components')
+        csv_filename = f'MID_PCA_results_{dynamic_prefix}.csv'
+        df_pc4.to_csv(csv_filename, index=True)
+        print(f"Saved: {csv_filename}")
