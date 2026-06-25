@@ -3,8 +3,7 @@ from typing import Tuple
 
 def decompose_fmri_signals(contra_l: float, ipsi_l: float, contra_r: float, ipsi_r: float) -> Tuple[float, float]:
     """
-    Decomposes 4 mean fMRI signal values into a shared latent signal 
-    and a discriminative latent signal using a multiple linear model.
+    Decomposes 4 mean fMRI signal values into a shared latent signal and a discriminative latent signal using a multiple linear model.
     
     Parameters:
     contra_l : Contralateral signal when left hand is used.
