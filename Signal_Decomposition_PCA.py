@@ -28,7 +28,7 @@ def drop_three_sigma_and_na(df: pd.DataFrame, cols_to_check):
 
 def fit_pca_and_append(df_in: pd.DataFrame, feature_cols, n_components: int, prefix: str):
     """
-    Fit PCA with n_components (without standardizing),
+    Fit PCA with n_components,
     append PC scores to a copy of df_in, and return:
     - df_out with PC columns
     - pca model
@@ -59,7 +59,7 @@ def print_component_weights(pca: PCA, feature_cols, title: str):
                     name='ExplainedVarianceRatio')
     # print(f'\n=== {title} ===')
     print('Component weights (loadings):')
-    display(loadings)  # Jupyter-friendly; falls back to print if not available
+    display(loadings)  
     print('\nExplained variance ratio per PC:')
     display(evr)
 
